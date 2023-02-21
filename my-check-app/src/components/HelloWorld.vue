@@ -10,8 +10,8 @@ defineProps({
   <div class="text-center">
     <h1>{{ msg }}</h1>
   <p>Vue 3, Bootstrap 5, Backend Api con Laravel</p>
-  <span>Repositorio github: </span>
-  <a href="">Repositorio</a>
+  
+  <a href="https://github.com/yulivera/app-list-check-laravelApi-vue">Repositorio</a>
   
   </div>
   

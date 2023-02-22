@@ -13,24 +13,24 @@ function initList() {
 initList();
 
 //funcion componente hijo AddListCheck ,listar 
-var arrayN = [];
+
 function callbackeeC(data) {
+    var arrayN = [];
     console.log("EN PADRE");
     arrayN = listP.value;
     arrayN.push(data);
     listP.value = arrayN;
 }
 // function componente hijo BoxCheck, delete check
-var arrayD = [];
 function callbackeeDelete(id) {
-    arrayD = listP.value;
-    const filtered = arrayD.filter((item) => item.id !== id);
+    // console.log(id);
+    const filtered = listP.value.filter((item) => item.id !== id);
     listP.value = filtered;
 }
 
 </script>
 <template>
-    <BoxCheck @box-event="callbackeeDelete" v-for="(box, index) in listP" :id="box.id" :label="box.title"
+    <BoxCheck @box-event="callbackeeDelete" v-for="(box, index) in listP" :key="box.id" :id="box.id" :label="box.title"
         :status="box.status" />
 
     <div>

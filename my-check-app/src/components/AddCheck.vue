@@ -9,6 +9,7 @@ import { ref } from '@vue/reactivity'
 const cards = ref([]);
 
 function cardAll() {
+    var cardsArray = [];
     axios.get("http://localhost:8000/api/cards/").then((re) => {
         cards.value = re.data;
         cardsArray = re.data;

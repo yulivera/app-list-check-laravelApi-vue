@@ -45,6 +45,7 @@ function deleteBox(id) {
     axios.delete("http://localhost:8000/api/checks/" + id)
         .then((res) => {
             console.log(res);
+            //component CheckBox
             emit('box-event', id);
 
         })

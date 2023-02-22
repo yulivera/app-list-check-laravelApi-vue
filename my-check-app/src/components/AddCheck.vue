@@ -20,9 +20,6 @@ cardAll();
 
 const picture = ref(null);
 
-function cambio(pict) {
-    console.log(pict);
-}
 // list to cards
 function callbackee(data) {
     // console.log("EN PADRE");
@@ -54,8 +51,8 @@ function deleteList(id) {
 <template><!-- component form add list -->
     <AddCardList @some-event="callbackee" />
 
-    <div class="row p-2">
-        <div v-for="(card, index) in cards" :key="index" class="col-lg-4 col-md-6">
+    <div class="row">
+        <div v-for="(card, index) in cards" :key="index" class="col-md-4">
             <div class="card p-2 opacity-75 mb-2">
                 <div ref="picture" class="card-body">
                     <div class="d-flex justify-content-between">

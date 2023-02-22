@@ -13,10 +13,9 @@ function initList() {
 initList();
 
 //funcion componente hijo AddListCheck ,listar 
-
 function callbackeeC(data) {
+    // console.log("Callback");
     var arrayN = [];
-    console.log("EN PADRE");
     arrayN = listP.value;
     arrayN.push(data);
     listP.value = arrayN;

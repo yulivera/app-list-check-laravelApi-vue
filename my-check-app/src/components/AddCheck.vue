@@ -1,26 +1,31 @@
 <script setup>
 
-import axios from "axios";
-import AddCardList from "./AddCardList.vue"
-import CheckBox from "./CheckBox.vue"
+import AddCardList from "./AddCardList.vue";
+import CheckBox from "./CheckBox.vue";
 
-import { ref } from '@vue/reactivity'
-// import 
+import { ref, onMounted } from 'vue';
+import axios from "axios";
+
 const cards = ref([]);
+//variable entorno
+var apiUrl = '';
+
+onMounted(() => {
+  apiUrl = process.env.VITE_API_URL || 'http://localhost:8080';
+//   console.log(apiUrl);
+  cardAll();
+});
 
 function cardAll() {
     var cardsArray = [];
-    // http://localhost:8000/api/cards/
-    axios.get("https://app-list-check-laravelapi-vue-production.up.railway.app/api/checks").then((re) => {
+    axios.get(`${apiUrl}api/cards`).then((re) => {
         cards.value = re.data;
         cardsArray = re.data;
         console.log("NUEVO:", cards.value);
     })
 }
-cardAll();
 
 const picture = ref(null);
-
 // list to cards
 function callbackee(data) {
     // console.log("EN PADRE");
@@ -32,7 +37,7 @@ function callbackee(data) {
 // delete list
 var arrayD = [];
 function deleteList(id) {
-    axios.delete("http://localhost:8000/api/cards/" + id)
+    axios.delete(`${apiUrl}api/cards/` + id)
         .then((res) => {
             console.log(res);
             arrayD = cards.value;

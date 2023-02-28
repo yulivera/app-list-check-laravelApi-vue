@@ -12,6 +12,17 @@
 <script setup>
 
 import axios from "axios";
+import { onMounted } from 'vue';
+
+//variable entorno
+var apiUrl = '';
+
+onMounted(() => {
+  apiUrl = process.env.VITE_API_URL || 'http://localhost:8080';
+//   console.log(apiUrl);
+  
+});
+
 const emit = defineEmits(['some-event']);
 
 const card = {
@@ -19,9 +30,7 @@ const card = {
 };
 
 function submitForm() {
-    // http://localhost:8000/api/cards
-    
-    axios.post("https://app-list-check-laravelapi-vue-production.up.railway.app/api/cards", card)
+    axios.post(`${apiUrl}api/cards/`, card)
         .then((res) => {
             console.log(res.data);
             // component call AddCheck.vue

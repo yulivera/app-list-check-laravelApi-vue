@@ -20,11 +20,20 @@
 <script setup>
 
 import axios from "axios";
-import { ref } from '@vue/reactivity';
+import { ref, onMounted } from 'vue';
 
 const emit = defineEmits(['check-event']);
 const props = defineProps({ id: Number });
 const isActive = ref(true);
+
+//variable entorno
+var apiUrl = '';
+
+onMounted(() => {
+  apiUrl = process.env.VITE_API_URL || 'http://localhost:8080';
+//   console.log(apiUrl);
+  
+});
 
 const d = ref({
     title: '',
@@ -33,7 +42,7 @@ const d = ref({
 });
 
 function submitForm() {
-    axios.post("http://localhost:8000/api/checks", d.value)
+    axios.post(`${apiUrl}api/checks`, d.value)
         .then((res) => {
             // console.log(res);
             d.value.title = "";

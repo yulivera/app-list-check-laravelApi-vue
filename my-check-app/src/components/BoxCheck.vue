@@ -1,6 +1,15 @@
 <script setup>
 import axios from "axios";
-import { ref } from 'vue';
+import { ref,onMounted } from 'vue';
+
+//variable entorno
+var apiUrl = '';
+
+onMounted(() => {
+  apiUrl = process.env.VITE_API_URL || 'http://localhost:8080';
+//   console.log(apiUrl);
+  
+});
 
 const emit = defineEmits(['box-event']);
 
@@ -27,8 +36,7 @@ init();
 // Cambiar status
 function statusCheck(id) {
     // console.log(db.status);
-
-    axios.put("http://localhost:8000/api/checks/" + id, db)
+    axios.put(`${apiUrl}api/checks/` + id, db)
         .then((res) => {
             // console.log(res.data.title);
             isActive.value = true;
@@ -42,7 +50,7 @@ function statusCheck(id) {
 }
 function deleteBox(id) {
     console.log(id);
-    axios.delete("http://localhost:8000/api/checks/" + id)
+    axios.delete(`${apiUrl}api/checks/` + id)
         .then((res) => {
             console.log(res);
             //component CheckBox

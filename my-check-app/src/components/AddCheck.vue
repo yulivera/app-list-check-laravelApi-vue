@@ -10,7 +10,8 @@ const cards = ref([]);
 
 function cardAll() {
     var cardsArray = [];
-    axios.get("http://localhost:8000/api/cards/").then((re) => {
+    // http://localhost:8000/api/cards/
+    axios.get("https://app-list-check-laravelapi-vue-production.up.railway.app/api/checks").then((re) => {
         cards.value = re.data;
         cardsArray = re.data;
         console.log("NUEVO:", cards.value);

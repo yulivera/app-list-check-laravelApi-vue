@@ -19,7 +19,9 @@ const card = {
 };
 
 function submitForm() {
-    axios.post("http://localhost:8000/api/cards", card)
+    // http://localhost:8000/api/cards
+    
+    axios.post("https://app-list-check-laravelapi-vue-production.up.railway.app/api/cards", card)
         .then((res) => {
             console.log(res.data);
             // component call AddCheck.vue

@@ -18,7 +18,8 @@ onMounted(() => {
 
 function cardAll() {
     var cardsArray = [];
-    axios.get(`${apiUrl}api/cards`).then((re) => {
+    // axios.get(`${apiUrl}api/cards`).then((re) => {
+    axios.get('http://localhost:8000/api/cards').then((re) => {
         cards.value = re.data;
         cardsArray = re.data;
         console.log("NUEVO:", cards.value);

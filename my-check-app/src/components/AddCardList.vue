@@ -18,7 +18,7 @@ import { onMounted } from 'vue';
 var apiUrl = '';
 
 onMounted(() => {
-  apiUrl = process.env.VITE_API_URL || 'http://localhost:8080';
+  apiUrl = process.env.VITE_API_URL || 'http://localhost:8000';
 //   console.log(apiUrl);
   
 });

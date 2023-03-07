@@ -20,10 +20,10 @@ return [
     // 'allowed_methods' => ['*'],
     'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE'],
 
-    // 'allowed_origins' => ['*'],
-    'allowed_origins' => [
-        'https://app-list-check-laravel-api-vue.vercel.app',
-    ],
+    'allowed_origins' => ['*'],
+    // 'allowed_origins' => [
+    //     'https://app-list-check-laravel-api-vue.vercel.app',
+    // ],
 
     'allowed_origins_patterns' => [],
 

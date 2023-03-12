@@ -19,7 +19,7 @@ var apiUrl = '';
 
 onMounted(() => {
   apiUrl = process.env.VITE_API_URL || 'http://localhost:8000';
-//   console.log(apiUrl);
+  console.log(apiUrl);
   
 });
 
@@ -32,6 +32,7 @@ const card = {
 function submitForm() {
     axios.post(`${apiUrl}api/cards/`, card)
         .then((res) => {
+            console.log("submitFrom:"+apiUrl);
             console.log(res.data);
             // component call AddCheck.vue
             emit('some-event', res.data);

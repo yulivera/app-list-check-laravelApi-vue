@@ -44,6 +44,7 @@ class CardController extends Controller
     {
         $card = new Card();
         $card->title = $request->title;
+        $card->status = $request->status;
         $card->save();
 
         return json_encode($card);
@@ -70,6 +71,8 @@ class CardController extends Controller
     public function update(Request $request)
     {
         $card = Card::findOrFail($request->id);
+        $card->title = $request->title;
+        $card->status = $request->status;
         $card->save();
         return $card;
     }

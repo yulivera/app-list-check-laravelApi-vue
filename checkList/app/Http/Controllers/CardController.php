@@ -44,7 +44,7 @@ class CardController extends Controller
     {
         $card = new Card();
         $card->title = $request->title;
-        $card->status = $request->status;
+        $card->status = 1;
         $card->save();
 
         return json_encode($card);

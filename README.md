@@ -40,10 +40,6 @@
 | `id` | `number` | **Required**. id card, param route |
 | `title` | `string` | **Required**. Title card |
 
-#### Response
-
-```
-```
 
 ### DELETE card
 ```http

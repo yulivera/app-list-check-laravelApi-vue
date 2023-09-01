@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-//todos los registros
+//todos los registros *
 Route::get('/cards',[CardController::class,'index']);
 // un registro en especifico con sus checks
 Route::get('/car/{id}',[CardController::class,'show']);
@@ -30,20 +30,20 @@ Route::get('/car/{id}',[CardController::class,'show']);
 //todos los registros
 Route::get('/cardsitems',[CardController::class,'allIndex']);
 
-//crear una card
+//crear una card 
 Route::post('/cards',[CardController::class,'store']);
-// update card
+// update card 
 Route::put('/cards/{id}',[CardController::class,'update']);
-//delete card
+//delete card 
 Route::delete('/cards/{id}',[CardController::class,'destroy']);
 
 // --- Check list ----------
 
 //todos los registros
 Route::get('/checks',[CheckController::class,'index']); 
-//crear una card
+//crear un item
 Route::post('/checks',[CheckController::class,'store']);
-// update card
+// update item
 Route::put('/checks/{id}',[CheckController::class,'update']);
-//delete card
+//delete item
 Route::delete('/checks/{id}',[CheckController::class,'destroy']);

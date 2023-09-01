@@ -30,7 +30,7 @@ const isActive = ref(true);
 var apiUrl = '';
 
 onMounted(() => {
-  apiUrl = process.env.VITE_API_URL || 'http://localhost:8000';
+  apiUrl = 'http://localhost:8000/';
 //   console.log(apiUrl);
   
 });
@@ -55,8 +55,6 @@ function submitForm() {
             //Perform action in always
         });
 }
-
-
 
 </script>
 

@@ -11,19 +11,18 @@ const cards = ref([]);
 var apiUrl = '';
 
 onMounted(() => {
-  apiUrl = process.env.VITE_API_URL || 'http://localhost:8000/';
-//   console.log(apiUrl);
+  apiUrl = 'http://localhost:8000/';
+  console.log("url",apiUrl);
   cardAll();
 });
 
 function cardAll() {
     var cardsArray = [];
     // axios.get(`${apiUrl}api/cards`).then((re) => {
-    // axios.get('http://localhost:8000/api/cards').then((re) => {
-    axios.get('https://app-list-check-laravelapi-vue-production.up.railway.app/api/cards').then((re) => {
+    axios.get('http://localhost:8000/api/cards').then((re) => {
         cards.value = re.data;
         cardsArray = re.data;
-        console.log("NUEVO:", cards.value);
+        // console.log("NUEVO:", cards.value);
     })
 }
 

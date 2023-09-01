@@ -17,14 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 //todos los registros
 Route::get('/cards',[CardController::class,'index']);
 // un registro en especifico con sus checks
 Route::get('/car/{id}',[CardController::class,'show']);
+
+//card y items
+//todos los registros
+Route::get('/cardsitems',[CardController::class,'allIndex']);
 
 //crear una card
 Route::post('/cards',[CardController::class,'store']);
@@ -43,6 +47,3 @@ Route::post('/checks',[CheckController::class,'store']);
 Route::put('/checks/{id}',[CheckController::class,'update']);
 //delete card
 Route::delete('/checks/{id}',[CheckController::class,'destroy']);
-
-
-
